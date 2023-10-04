@@ -4,9 +4,8 @@
 #include <string.h>
 
 //░░▓▓
-char test;
 
-const char Field[][8][8] = {
+const char Field[8][8][8] = {
 	{"▓▓","░░","▓▓","░░","▓▓","░░","▓▓","░░"},
 	{"░░","▓▓","░░","▓▓","░░","▓▓","░░","▓▓"},
 	{"▓▓","░░","▓▓","░░","▓▓","░░","▓▓","░░"},
@@ -17,9 +16,11 @@ const char Field[][8][8] = {
 	{"░░","▓▓","░░","▓▓","░░","▓▓","░░","▓▓"},
 };
 
+enum players {white, black};
+
 char currentGame[8][8][8];
-char currentMove[5] = "white";
-char move[56];
+int currentPlayer = white;
+char move[15];
 
 bool gameOver = false;
 
@@ -43,26 +44,52 @@ void printField(char in[][8][8]){
 	} 
 }
 
+void changePlayer(){
+	switch(currentPlayer){
+
+		case 0:
+			currentPlayer = 1;
+			break;
+		case 1:
+			currentPlayer = 0;
+			break;
+	}
+}
+
+
 void getMove(){
-	printf("%s makes a move: \n", currentMove);
-	//fgets(currentMove, 5, stdin);
+	if (currentPlayer == white)
+	{
+		printf("white makes a move: \n");	
+	}else if(currentPlayer == black){
+		printf("black makes a move: \n");	
+	}
+	
+	//fgets(move, 9, stdin);
+
 }
 
 void gameLoop(){
 	while(!gameOver){
 		printField(currentGame);
 		getMove();
+		changePlayer();
 	}
 
 }
 
 int main(){
 	
-	setUp();
-	//gameLoop();
-	printField(currentGame);	
-	getMove();
-	printf("%s",currentMove);
+	//setUp();
+	//printField(currentGame);
+	//----------------------	
+	//getMove();
+	printf("black makes a move: \n");	
+	fgets(move, sizeof(move), stdin);
+	printf("test: %s \n", move);	
+	fgets(move, sizeof(move), stdin);
+	
 
+	
 	return 0;
 }
