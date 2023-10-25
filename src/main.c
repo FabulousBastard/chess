@@ -7,9 +7,9 @@
 //░▓, p-pawn ,r-rook ,k-knight ,b-bishop, 
 //		K-King ,Q-Queen;
 
-enum pieces {wp = 10, wr, wk, wb, wK, wQ};
+enum pieces {wp = 10, wr, wk, wb, wK, wQ, bp = 20, br, bk, bb, bK, bQ, };
 
-const char Field[8][8] = {
+const char Field[8][8][3] = {
 	{"▓","░","▓","░","▓","░","▓","░"},
 	{"░","▓","░","▓","░","▓","░","▓"},
 	{"▓","░","▓","░","▓","░","▓","░"},
@@ -19,8 +19,8 @@ const char Field[8][8] = {
 	{"▓","░","▓","░","▓","░","▓","░"},
 	{"░","▓","░","▓","░","▓","░","▓"},
 };
-int pieces[8][8][8] = {
-	{rook,knight,bishop,Queen,King,bishop,knight,rook},
+int pieces[8][8] = {
+	{br,bk,bb, bQ,bK,bb,bk,br},
 	{0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0},
@@ -30,8 +30,8 @@ int pieces[8][8][8] = {
 	{wr,wk,wb,wK,wQ,wb,wk,wr},
 };
 
-};
-char currentGame[8][8][8];
+
+char currentGame[8][8];
 
 enum players {white, black};
 
@@ -48,7 +48,7 @@ void setUp(){
 	memcpy(currentGame, Field, sizeof(Field));
 }
 
-void printField(char in[8][8][8]){
+void printField(char in[8][8]){
 
 	printf("\n  a b c d e f g h\n");
 
@@ -58,10 +58,12 @@ void printField(char in[8][8][8]){
 
 		for (int x = 0; x < 8; ++x){
 
-			switch(blackPieces){
-				case
+			switch(pieces[x][y]){
+				case 1:
+				break;
+
 			}
-			printf(in[y-1][x]);///    <<<<----------###
+			//printf(in[y-1][x]);///    <<<<----------###
 		}
 		printf("\n");
 	} 
