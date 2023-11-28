@@ -5,9 +5,9 @@
 #include "olive.c"
 
 //░▓, p-pawn ,r-rook ,k-knight ,b-bishop, 
-//		K-King ,Q-Queen;
+//		K-King ,Q-Queen; wchar_t | wprintf		
 
-enum pieces {░, ▓, wp = 10, wr, wk, wb, wK, wQ, bp = 20, br, bk, bb, bK, bQ, NP = };
+enum pieces {bs = 0, ws = 1, wp = 10, wr, wk, wb, wK, wQ, bp = 20, br, bk, bb, bK, bQ, NP = };
 
 const int Field[8][8] = {
 	{▓,░,▓,░,▓,░,▓,░},
